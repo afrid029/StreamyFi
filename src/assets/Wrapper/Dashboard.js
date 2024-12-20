@@ -25,11 +25,10 @@ const Wrapper = styled.div`
 
   .jumbotron {
     //padding: 1rem;
-    margin-bottom: 2rem;
+    //margin-bottom: 2rem;
     height: 70vh;
     background-color: #eceeef;
     border-radius: 0.3rem;
-    width: 100vw;
     background-image: url("src/assets/images/banner-bk.jpg");
   }
  
@@ -93,7 +92,6 @@ const Wrapper = styled.div`
 
 h5{
     font-family: MyCustomFont, sans-serif;
-    margin-left: 15px;
     font-size: 1rem;
 }
 
@@ -102,6 +100,10 @@ h5{
     justify-content: center;
     align-items: center;
     gap: 10px;
+    margin: 15px;
+    h5 {
+        margin: 0px;
+    }
 }
 
 .liveIcon {

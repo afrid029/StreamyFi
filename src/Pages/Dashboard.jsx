@@ -2,13 +2,31 @@ import { Outlet } from "react-router-dom";
 import Wrapper from "../assets/Wrapper/Dashboard";
 import logo from "../assets/images/icon.png";
 import user from "../assets/user.png";
-import { UserContainer, LiveVideo, VideoTypeBar } from "../Components";
+import { UserContainer, LiveVideo, Footer, StoredVideoContainer } from "../Components";
 import { createContext, useContext, useState } from "react";
 import Button from "@mui/material/Button";
 import CircleIcon from "@mui/icons-material/Circle";
 
+const DashboardContext = createContext();
+
+
+
 const Dashboard = () => {
+
+    const [isPlaying, setIsPlaying] = useState(true);  // State to track whether the video is playing or paused
+const [videoSource, setvideoSource] = useState("https://tv4.massstream.net/Muthamiltv-web/index.m3u8");
+
+
+    const setPlaying = (value) => {
+        console.log(value);
+        
+        setIsPlaying(value);
+        console.log(isPlaying);
+        
+    }
+
   return (
+    <DashboardContext.Provider value={{isPlaying, videoSource, setPlaying }}>
     <Wrapper>
       <div className="jumbotron " id="banner">
         <header>
@@ -36,14 +54,20 @@ const Dashboard = () => {
           </div>
         </header>
         <LiveVideo
-          videoSource={"https://tv4.masssstream.net/Muthamiltv-web/index.m3u8"}
         />
-        <div className="live">
+      </div>
+      <div className="live">
         <h5>நேரலை</h5> <CircleIcon className="liveIcon" sx={{color: 'red'}} />
         </div>
-      </div>
+    
+      
     </Wrapper>
+    <StoredVideoContainer/>
+    <Footer />
+    </ DashboardContext.Provider>
   );
 };
+
+export const useDashboardContext = () => useContext(DashboardContext);
 
 export default Dashboard;
