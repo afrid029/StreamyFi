@@ -1,14 +1,6 @@
 import * as React from "react";
-import Backdrop from "@mui/material/Backdrop";
-import Box from "@mui/material/Box";
-import Modal from "@mui/material/Modal";
-import Fade from "@mui/material/Fade";
-import Button from "@mui/material/Button";
 import { useDashboardContext } from "../Pages/Dashboard";
 import Wrapper from "../assets/Wrapper/Player";
-import ReactEmbedVideo from "react-embed-video";
-import ReactPlayer from "react-player";
-import { getEmbedUrl } from "youtube-embed";
 
 const GetEmbaded = (url) => {
   const youtubeRegex =

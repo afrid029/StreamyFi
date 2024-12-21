@@ -1,8 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Form, useNavigation } from "react-router-dom";
 import Wrapper from "../assets/Wrapper/Login";
-import logo from "../assets/images/icon.png";
-import { useDashboardContext, useModalContext } from "../Pages/Dashboard";
+import { useDashboardContext } from "../Pages/Dashboard";
 
 const Login = () => {
   const {
