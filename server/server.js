@@ -4,12 +4,20 @@ import cors from 'cors'
 import AdminRouter from "../server/Routers/User.js"
 import * as dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
-import { GetAllVideo } from './Controllers/VideoController.js';
+import { GetAllVideo, GetLiveStream } from './Controllers/VideoController.js';
 dotenv.config();
+
+import path, {dirname} from 'path'
+import { fileURLToPath} from 'url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
+
+
 
 const App = express();
 const port = process.env.PORT || 5100; 
 
+App.use(express.static(path.resolve(__dirname, './public')));
 App.use(cors());
 App.use(cookieParser())
 App.use(express.json());
@@ -20,8 +28,8 @@ App.use(express.json());
 //     res.json({msg:'Working message'})
 // })
 App.use('/api/admin/', AdminRouter)
-App.get('/api/test/', ((req, res) => {res.json({msg:'Hello Frontend'})}))
 App.get('/api/user/getallvideo/', GetAllVideo);
+App.get('/api/user/getstream/', GetLiveStream);
 
 
   App.get('/api/users', (req, res) => {

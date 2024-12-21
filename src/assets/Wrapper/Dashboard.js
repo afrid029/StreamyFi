@@ -1,68 +1,118 @@
 import styled from "styled-components";
-import custom from "../custom.ttf"
+import custom from "../custom.ttf";
 const Wrapper = styled.div`
-
-    @font-face {
-        font-family: 'MyCustomFont';
-        src: url(${custom}) format('truetype');
-        font-weight: normal;
-        font-style: normal;
-    }
-    @media (max-width: 480px){
-        .jumbotron {
-            height: 45vh !important;
-        }
-        img {
-            width: 40px;
-            height: 40px;
-        }
-        .col-2 {
-            Button {
-                font-size: 10px;
-            }
-        }
-    }
+  @font-face {
+    font-family: "MyCustomFont";
+    src: url(${custom}) format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
 
   .jumbotron {
-    //padding: 1rem;
-    //margin-bottom: 2rem;
-    height: 70vh;
     background-color: #eceeef;
     border-radius: 0.3rem;
-    background-image: url("src/assets/images/banner-bk.jpg");
+    background-image: url("src/assets/images/banner-bk.png");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+   @media (max-width: 1600px) {
+    .jumbotron {
+      height: 60vh;
+    }
+  }
+
+   @media (max-width: 1200px) {
+    .jumbotron {
+      height: 50vh;
+    }
+  }
+    @media (max-width: 1024px) {
+    .jumbotron {
+      height: 50vh;
+    }
+  }
+  @media (max-width: 768px) {
+    .jumbotron {
+      height: 45vh;
+    }
+  }
+  @media (max-width: 600px) {
+    .jumbotron {
+      height: 45vh;
+    }
   }
  
 
-  .container {
-    //position: relative;
-    // margin-left: auto;
-    // margin-right: auto;
-    // padding-right: 15px;
-    // padding-left: 15px;
+  .header {
+    animation: fromLeft 1s linear;
   }
 
-  
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 10px;
+  @keyframes fromLeft {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateX(0%);
+      opacity: 1;
+    }
+  }
+
+   @media (max-width: 1600px) {
+    .header {
+      margin-left: 20px;
+      align-items: center;
+    }
+  }
+
+   @media (max-width: 1200px) {
+    .header {
+      margin-left: 20px;
+      align-items: center;
+    }
+  }
+
+   @media (max-width: 1024px) {
+    .header {
+      margin-left: 20px;
+      align-items: center;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .header {
+      margin-left: 20px;
+      align-items: center;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .header {
+      margin-left: 20px;
+      align-items: center;
+    }
+  }
+
+ 
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px;
+    .col-2 {
+      display: inline-flex;
+      justify-content: center;
+    }
+  }
+
   .col-2 {
-    display: inline-flex;
-    justify-content: center;
-  }
-}
-
-
-
-.col-2 {
-  position: relative;
-  width: 100%;
-  min-height: 1px;
-}
-
-
-.col-2 {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 16.666667%;
     -ms-flex: 0 0 16.666667%;
@@ -70,55 +120,134 @@ const Wrapper = styled.div`
     max-width: 16.666667%;
   }
 
+    @media (max-width: 1024px) {
+    .col-2 {
+      Button {
+        font-size: 12px;
+      }
+    }
+  }
+  
+   @media (max-width: 768px) {
+    .col-2 {
+      Button {
+        font-size: 12px;
+      }
+    }
+  }
 
+  @media (max-width: 600px) {
+    .col-2 {
+      Button {
+        font-size: 10px;
+      }
+    }
+  }
+ 
 
-#banner {
+  #banner {
     background-size: cover;
-}
+  }
 
-/********** banner **********/
-#banner header {
+  /********** banner **********/
+  #banner header {
     overflow: hidden;
-}
+    position: fixed;
+    width: 100vw;
+    z-index: 10;
+    background-color: white;
+    top: 0px;
+  }
 
-#banner header img {
-    max-width: 80px;
-}
+  #banner header img {
+    max-width: 120px;
+  }
 
-.align-center {
+  .align-center {
     display: flex;
     align-items: center;
-}
+    animation: fromRight 1s linear;
+    margin-right: 20px;
+  }
 
-h5{
+  @keyframes fromRight {
+    0% {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateX(0%);
+      opacity: 1;
+    }
+  }
+
+  h5 {
     font-family: MyCustomFont, sans-serif;
     font-size: 1rem;
-}
+  }
 
-.live{
+  .live {
     display: inline-flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
+    position: relative;
     margin: 15px;
     h5 {
-        margin: 0px;
+      margin: 0px;
     }
-}
+  }
 
-.liveIcon {
+   @media (max-width: 1600px) {
+    .live {
+      top: 180px;
+      left: 50px;
+    }
+  }
+
+   @media (max-width: 1200px) {
+    .live {
+      top: 180px;
+      left: 30px;
+    }
+  }
+  
+   @media (max-width: 1024px) {
+    .live {
+      top: 173px;
+      left: 24px;
+    }
+  }
+
+   @media (max-width: 768px) {
+    .live {
+      top: 175px;
+      left: 15px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .live {
+      top: 170px;
+      left: 15px;
+    }
+  }
+
+  
+
+  .liveIcon {
     animation: blink 0.6s linear infinite alternate;
-}
+  }
 
-@keyframes blink {
-0% {
-    opacity: 0;
-}
-    100%{
-        opacity: 1;
+  @keyframes blink {
+    0% {
+      opacity: 0;
     }
-}
-
+    100% {
+      opacity: 1;
+    }
+  }
 `;
 
 export default Wrapper;

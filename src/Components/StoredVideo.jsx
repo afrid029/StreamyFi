@@ -1,6 +1,7 @@
 import ReactPlayer from "react-player";
 import Wrapper from "../assets/Wrapper/StoredVideo";
 import React, { useContext, useEffect, useRef } from "react";
+import PlayCircleFilledRoundedIcon from "@mui/icons-material/PlayCircleFilledRounded";
 import {
   Box,
   Card,
@@ -11,9 +12,8 @@ import {
 } from "@mui/material";
 import { useDashboardContext } from "../Pages/Dashboard";
 
-const StoredVideo = () => {
-
-  const {setPlaying} = useDashboardContext();
+const StoredVideo = ({job}) => {
+  const { setPlaying, PlayerHandler } = useDashboardContext();
 
   return (
     <Wrapper>
@@ -29,35 +29,65 @@ const StoredVideo = () => {
         </div>
     </div> */}
 
-      <Card onClick={() => setPlaying(false)
-      }
+      <Card className="myCard"
+        onClick={() => {
+          setPlaying(false);
+          PlayerHandler(true);
+        }}
         sx={{
           maxWidth: 345,
           marginBottom: "10px",
           borderRadius: "15px",
           boxShadow: "0px 0px 15px #8A8887",
-          border: '0px'
+          border: "0px",
         }}
       >
         <CardActionArea>
-          <Box sx={{ position: "relative", height: 140 }}>
-            <iframe
+          <Box
+            sx={{
+              position: "relative",
+              height: 140,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <CardMedia
+              component="img"
+              height="140"
+              image="/upload/1734785977300.jpg"
+              alt="green iguana"
+            />
+
+            <PlayCircleFilledRoundedIcon
+              sx={{
+                position: "absolute",
+                fontSize: "48px",
+                color: "#34E628",
+                backgroundColor: "white",
+                borderRadius: "25px",
+                transition: "transform 0.5s linear",
+                "&:hover": {
+                  color: "#076900",
+                  backgroundColor: "transparent",
+                  border: "1px solid white",
+                  transform: "scaleX(-1)",
+                },
+              }}
+            />
+
+            {/* <img src="src/assets/images/video.webp" alt="" /> */}
+            {/* <iframe
               style={{ width: "-webkit-fill-available" }}
               src="https://www.youtube.com/embed/uD3p_rZPBUQ"
               title="YouTube video"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
-            ></iframe>
+            ></iframe> */}
           </Box>
           <CardContent>
             <div className="h4">
-              <p>
-                This is some long text that will be hidden and replaced with an
-                ellipsis if it overflows the container. The ellipsis will show
-                at the point where the text exceeds the container width. This is
-                some long text that will be hidden and replaced with an ellipsis
-                if it overflows the container. The ellipsis will show at the
-                point where the text exceeds the container width.
+              <p>{job.title}
               </p>
             </div>
           </CardContent>
