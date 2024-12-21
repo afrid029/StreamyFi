@@ -13,13 +13,14 @@ const Wrapper = styled.div`
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    background-size: contain;
 }
 
 .modal-content {
     background-color: white;
     padding: 20px;
     border-radius: 8px;
-    width: 90vw;
+    width: 50vw;
     text-align: center;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }

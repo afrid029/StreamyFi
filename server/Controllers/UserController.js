@@ -137,3 +137,46 @@ export const LiveVideo = async (req, res) => {
         .json({ msg: "unable to insert Live stream. try again later" });
     });
 };
+
+export const LogoUpload = async (req, res) => {
+  console.log(req.file);
+
+  const { logo } = req.body;
+
+  //res.json({msg:'checking'})
+  const ID = nanoid(20);
+  const imgPath = req.file.path;
+  //   console.log(req.file.path);
+
+  await db
+    .execute(
+      "insert into logo(ID,image,updatedAt) value (?,?,CURRENT_TIMESTAMP)",
+      [ID, imgPath]
+    )
+    .then((response) => {
+      res.status(200).json({ response });
+    })
+    .catch((er) => {
+      res
+        .status(500)
+        .json({ msg: "unable to update logo. try again later", er });
+    });
+};
+
+export const checkuser = async (req, res) => {
+  //res.json({auth: true})
+  //console.log(req.user);
+
+  // req.user.useremail="dfsdfds"
+  
+  await db.execute("select * from users where email = ?",[req.user.useremail]).then((result)=> {
+    console.log(result.length);
+
+    if (result[0].length == 1) {
+      res.json({auth: true});
+    }else {
+      res.json({auth: false})
+    }
+    
+  })
+}

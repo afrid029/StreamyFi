@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import custom from "../custom.ttf";
+import mass from "../ArgentumSans-Bold.ttf"
 const Wrapper = styled.div`
   @font-face {
     font-family: "MyCustomFont";
@@ -8,10 +9,16 @@ const Wrapper = styled.div`
     font-style: normal;
   }
 
+   @font-face {
+    font-family: "mass";
+    src: url(${mass}) format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+
   .jumbotron {
     background-color: #eceeef;
     border-radius: 0.3rem;
-    background-image: url("src/assets/images/banner-bk.png");
     display: flex;
     justify-content: center;
     align-items: center;
@@ -246,6 +253,106 @@ const Wrapper = styled.div`
     }
     100% {
       opacity: 1;
+    }
+  }
+
+  .mass {
+    color: white;
+    position: absolute;
+    margin: auto;
+    display: flex;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    top: 16vh;
+    animation: dropdown 2s ease-out forwards; 
+    transition: filter 0.3s ease;
+  }
+
+  .mass: hover {
+    filter: drop-shadow(0px 0px 20px #C7C9AF);
+  }
+
+  @keyframes dropdown {
+   0% {
+    opacity: 0;
+    transform: translateY(-50%);  /* Start smaller */
+    color: white;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);  /* Full size */
+    color: red;
+  }
+  }
+     @media (max-width: 1600px){
+    .mass {
+        font-size: 60px;
+        font-family: mass, serif;
+        letter-spacing: 2rem;
+        font-weight: 600;
+        top: 7vh;
+    }
+  }
+
+  
+
+   @media (max-width: 1200px){
+    .mass {
+        font-size: 60px;
+        font-family: mass, serif;
+        letter-spacing: 1.8rem;
+        font-weight: 600;
+        top: 8vh;
+    }
+  }
+
+   @media (max-width: 1024px){
+    .mass {
+        font-size: 50px;
+        font-family: mass, serif;
+        letter-spacing: 1.5rem;
+        font-weight: 600;
+        top: 9vh;
+    }
+  }
+
+   @media (max-width: 768px){
+    .mass {
+        font-size: 50px;
+        font-family: mass, serif;
+        letter-spacing: 1.2rem;
+        font-weight: 600;
+        top: 9vh;
+    }
+  }
+
+  @media (max-width: 600px){
+    .mass {
+        font-size: 35px;
+        font-family: mass, serif;
+        letter-spacing: 0.8rem;
+        font-weight: 500;
+        top: 12vh;
+    }
+  }
+
+    @media (max-width: 450px){
+    .mass {
+        font-size: 30px;
+        font-family: mass, serif;
+        letter-spacing: 0.5rem;
+        font-weight: 400;
+        top: 12vh;
+    }
+  }
+
+  @media (max-width: 320px){
+    .mass {
+        font-size: 20px;
+        font-family: mass, serif;
+        letter-spacing: 0.4rem;
+        font-weight: 300;
+        top: 12vh;
     }
   }
 `;

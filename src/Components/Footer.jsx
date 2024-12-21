@@ -9,11 +9,11 @@ const Footer = () => {
   return (
     <Wrapper>
         <div className='footer'>
-        <h3>About Us</h3>
+        {/* <h3>About Us</h3>
         <p>XYZ Private Limited</p>
         <p><LocalPostOfficeOutlinedIcon /> abcd@xyz.com</p>
         <p><LocalPhoneOutlinedIcon />+123 456 789</p>
-        <p><FacebookOutlinedIcon />XYZ PVT</p>
+        <p><FacebookOutlinedIcon />XYZ PVT</p> */}
     </div>
     </Wrapper>
   )

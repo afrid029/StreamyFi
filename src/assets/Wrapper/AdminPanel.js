@@ -18,7 +18,11 @@ padding: 10px;
         margin-top: -3px;
     }
 
-
+    @media (max-width: 600px) {
+        .panel {
+            font-size: 10px;
+        }
+    }
 `
 
 export default Wrapper;

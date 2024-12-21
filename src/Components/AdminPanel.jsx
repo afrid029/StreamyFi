@@ -4,16 +4,16 @@ import { useDashboardContext } from '../Pages/Dashboard'
 
 const AdminPanel = () => {
 
-    const {AddLiveModalHandler, AddVideoModalHandler} = useDashboardContext();
+    const {AddLiveModalHandler, AddVideoModalHandler,handleLogoUpdateModel} = useDashboardContext();
   return (
     <Wrapper>
-        <div onClick={() => AddLiveModalHandler(true)}>
+        <div className='panel' onClick={() => AddLiveModalHandler(true)}>
             Change Live Stream
         </div>
-        <div onClick={() => AddVideoModalHandler(true)}>
+        <div className='panel' onClick={() => AddVideoModalHandler(true)}>
             Add Video
         </div>
-        <div>
+        <div className='panel' onClick={() => handleLogoUpdateModel(true)}>
             Update Logo
         </div>
     </Wrapper>

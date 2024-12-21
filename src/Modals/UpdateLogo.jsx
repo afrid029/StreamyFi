@@ -3,19 +3,17 @@ import { Form } from "react-router-dom";
 import Wrapper from "../assets/Wrapper/AddVideo";
 import { useDashboardContext } from "../Pages/Dashboard";
 
-const AddVideo = () => {
+const UpdateLogo = () => {
   const {
-    isVideoModal,
-    AddVideoModalHandler,
-    handleImageChange,
+    logoUpdateModal,
+    handleLogoUpdateModel,
+    handleLogoChange,
     isSubmitting,
-    handleURLChange,
-    handleTitleChange,
-    VideoUploadAction,
+    UploadLogoAction,
     bgImage,
     backgroundImage
   } = useDashboardContext();
-  if (!isVideoModal) return null;
+  if (!logoUpdateModal) return null;
 
   return (
     <Wrapper>
@@ -27,54 +25,35 @@ const AddVideo = () => {
               : `url('/src/assets/images/banner-bk.png')`,
           }}
         onClick={() => {
-          AddVideoModalHandler(false);
+          handleLogoUpdateModel(false);
         }}
       >
         <div className="modal-content" onClick={(e) => e.stopPropagation()}>
           <button
             className="close-button"
             onClick={() => {
-              AddVideoModalHandler(false);
+              handleLogoUpdateModel(false);
             }}
           >
             X
           </button>
-          <h2>Add Video</h2>
+          <h2>Update Logo</h2>
           <div className="Form">
             <div className="FormRow">
-              <label htmlFor="url">Paste Video URL Here</label>
-              <input
-                type="url"
-                onChange={handleURLChange}
-                name="url"
-                id="url"
-              />
-            </div>
-            <div className="FormRow">
-              <label htmlFor="title">Title of the Video</label>
-              <input
-                type="name"
-                onChange={handleTitleChange}
-                name="title"
-                id="title"
-              />
-            </div>
-            <div className="FormRow">
-              <label htmlFor="image">Upload Thumbnail</label>
+              <label htmlFor="logo">Upload Logo</label>
               <input
                 type="file"
-                onChange={handleImageChange}
-                name="image"
-                id="image"
+                onChange={handleLogoChange}
+                name="logo"
+                id="logo"
                 accept="image/*"
                 multiple={false}
               />
             </div>
-
             <button
-              onClick={VideoUploadAction}
-              className="upload"
+              onClick={UploadLogoAction}
               disabled={isSubmitting}
+              className="upload"
             >
               {" "}
               {isSubmitting ? "Uploading..." : "Upload"}{" "}
@@ -86,4 +65,4 @@ const AddVideo = () => {
   );
 };
 
-export default AddVideo;
+export default UpdateLogo;

@@ -43,12 +43,12 @@ useEffect (() => {
     } else {
       //videoRef.current.play();
       // hlsRef.current.on(Hls.Events.MANIFEST_PARSED, () => {
-      //   videoRef.current.play();
+      videoRef.current.play();
       // });
 
-       hlsRef.current.on(Hls.Events.MEDIA_ATTACHED, () => {
-        videoRef.current.play();
-      });      
+      //  hlsRef.current.on(Hls.Events.MEDIA_ATTACHED, () => {
+      //   videoRef.current.play();
+      // });      
 
       // Handle any errors
       hlsRef.current.on(Hls.Events.ERROR, function(event, data) {

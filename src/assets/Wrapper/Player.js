@@ -63,6 +63,7 @@ width: -webkit-fill-available;
 margin: 5px;
 height: 50vh;
 border-radius: 5px;
+border: 0px;
 }
 
    

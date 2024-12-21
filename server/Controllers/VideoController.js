@@ -25,3 +25,12 @@ export const GetLiveStream = async (req, res) => {
         
     }
 }
+
+export const GetLogo = async (req, res) => {
+    await db.execute("select * from logo order by updatedAt desc limit 1").then((result) => {
+
+        res.status(200).json({result});
+    }).catch((er)=>{
+        res.status(400).json({msg: "Unable to fetch Logo", er})
+    })
+}

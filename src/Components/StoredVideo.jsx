@@ -32,7 +32,7 @@ const StoredVideo = ({job}) => {
       <Card className="myCard"
         onClick={() => {
           setPlaying(false);
-          PlayerHandler(true);
+          PlayerHandler(true, job.url);
         }}
         sx={{
           maxWidth: 345,
@@ -55,7 +55,7 @@ const StoredVideo = ({job}) => {
             <CardMedia
               component="img"
               height="140"
-              image="/upload/1734785977300.jpg"
+              image={`../../server/${job.image}`}
               alt="green iguana"
             />
 

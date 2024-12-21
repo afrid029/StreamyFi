@@ -5,12 +5,20 @@ import { useDashboardContext } from "../Pages/Dashboard";
 
 
 const AddLive = () => {
-    const { isLiveModal, AddLiveModalHandler, LiveVideoUploadAction, setSource, isSubmitting} = useDashboardContext();
+    const { isLiveModal, AddLiveModalHandler, LiveVideoUploadAction, setSource, isSubmitting, bgImage,
+        backgroundImage} = useDashboardContext();
     if (!isLiveModal) return null;
+
+console.log(bgImage);
+
 
     return (
         <Wrapper>
-            <div className="modal-overlay" onClick={() => {AddLiveModalHandler(false)}}>
+            <div className="modal-overlay"  style={{
+            backgroundImage: backgroundImage
+              ? `url('../server/${bgImage}')`
+              : `url('/src/assets/images/banner-bk.png')`,
+          }} onClick={() => {AddLiveModalHandler(false)}}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                 <button className="close-button" onClick={() => AddLiveModalHandler(false)}>X</button>
                 <h2>Update Live Stream</h2>
