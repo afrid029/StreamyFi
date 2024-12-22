@@ -11,6 +11,10 @@ position: relative;
     justify-content: space-around;
     flex-wrap: wrap;
     top: 153px;
+      h4 {
+        margin-left: 20px;
+        font-size: 20px;
+    }
 
 }
 
@@ -21,6 +25,10 @@ position: relative;
     justify-content: space-around;
     flex-wrap: wrap;
     top: 160px;
+      h4 {
+        margin-left: 18px;
+        font-size: 20px;
+    }
 
 }
 
@@ -31,6 +39,11 @@ position: relative;
     justify-content: space-around;
     flex-wrap: wrap;
     top: 150px;
+      h4 {
+        margin-left: 15px;
+        font-size: 18px;
+    }
+
 
 }
 
@@ -41,6 +54,11 @@ position: relative;
     justify-content: space-around;
     flex-wrap: wrap;
     top: 150px;
+     h4 {
+        margin-left: 10px;
+        font-size: 15px;
+    }
+
 
 }
 
@@ -51,14 +69,20 @@ position: relative;
     justify-content: space-around;
     flex-wrap: wrap;
     top: 143px;
+    h4 {
+        margin-left: 10px;
+        font-size: 12px;
+    }
 
 }
 
 .otherVideo{
-    width: 90vw;
+    width: 95vw;
 }
 h4 {
     margin-bottom: 10px;
+    font-family: system-ui;
+    color: #737373;
 }
 hr {
     border: 2px solid #DCDCDC;

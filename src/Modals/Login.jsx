@@ -24,7 +24,7 @@ const Login = () => {
       >
         <div className="modal-content" onClick={(e) => e.stopPropagation()}>
           <div className="banner">
-            <h2 style={{fontSize:'20px', margin: 'auto', letterSpacing: '10px'}}> <span style={{color: 'red'}}>WWW.</span>MASS TV <span style={{color: 'red'}}>.CA</span></h2>
+            <h2> <span style={{color: 'red'}}>WWW.</span>MASSTV<span style={{color: 'red'}}>.CA</span></h2>
           </div>
           <h4>Login</h4>
           <div className="Form">

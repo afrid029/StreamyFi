@@ -32,7 +32,7 @@ const Wrapper = styled.div`
         width: 25px;
     }
     .social {
-        top: 21vh;
+        top: 22vh;
     }
     
   }
@@ -42,7 +42,7 @@ const Wrapper = styled.div`
         width: 22px;
     }
     .social {
-        top: 21vh;
+        top: 22vh;
     }
     
   }
@@ -52,7 +52,7 @@ const Wrapper = styled.div`
         width: 21px;
     }
     .social {
-        top: 20vh;
+        top: 21vh;
     }
     
   }
@@ -62,7 +62,7 @@ const Wrapper = styled.div`
         width: 19px;
     }
     .social {
-        top: 20vh;
+        top: 21vh;
     }
     
   }
@@ -72,7 +72,7 @@ const Wrapper = styled.div`
         width: 18px;
     }
     .social {
-        top: 20vh;
+        top: 21vh;
     }
     
   }

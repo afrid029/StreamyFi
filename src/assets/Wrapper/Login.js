@@ -122,6 +122,60 @@ const Wrapper = styled.div`
    
 }
 
+@media (max-width: 1600px){
+    .banner h2 {
+        font-size: 22px;
+        margin: auto;
+        letter-spacing: 4px;
+    
+    }
+}
+
+@media (max-width: 1200px){
+    .banner h2 {
+        font-size: 21px;
+        margin: auto;
+        letter-spacing: 6px;
+    
+    }
+}
+
+@media (max-width: 1024px){
+    .banner h2 {
+        font-size: 20px;
+        margin: auto;
+        letter-spacing: 5px;
+    
+    }
+}
+
+@media (max-width: 786px){
+    .banner h2 {
+        font-size: 20px;
+        margin: auto;
+        letter-spacing: 4px;
+    
+    }
+}
+
+@media (max-width: 600px){
+    .banner h2 {
+        font-size: 18px;
+        margin: auto;
+        letter-spacing: 4px;
+    
+    }
+}
+
+@media (max-width: 400px){
+    .banner h2 {
+        font-size: 15px;
+        margin: auto;
+        letter-spacing: 3px;
+    
+    }
+}
+
 `
 
 

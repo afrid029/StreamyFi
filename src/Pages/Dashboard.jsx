@@ -48,7 +48,6 @@ export const loader = async () => {
       } else {
         localStorage.removeItem("logo");
       }
-
     })
     .catch((er) => {
       console.log(er);
@@ -64,7 +63,8 @@ export const loader = async () => {
 
   await CustomeFetch.get("/user/getallvideo")
     .then((response) => {
-      videos = response.data.results;
+      videos = response.data;
+      console.log(videos);
     })
     .catch((er) => {
       console.log(er);
@@ -75,25 +75,6 @@ export const loader = async () => {
   const combined = [data1, { videos }];
 
   return combined;
-
-  // try{
-  //   console.log("1")
-  //   const {data} = await CustomeFetch.get('/user/getstream');
-  //   const liveData = data.results[0];
-  //   console.log(liveData);
-
-  //   console.log("3")
-  //    const data2  = await CustomeFetch.get('/user/getallvideo');
-  //    const videoData = data2.results[0];
-  //   console.log(videoData);
-
-  //   return videos.results[0];
-
-  //   return data.results[0]
-
-  // }catch (er) {
-  //   return er
-  // }
 };
 
 const DashboardContext = createContext();
@@ -127,15 +108,14 @@ const Dashboard = () => {
   console.log(videos);
 
   useEffect(() => {
-    let token = localStorage.getItem("logo");    
+    let token = localStorage.getItem("logo");
     if (token) {
       setBackgroundImage(true);
-      token = token.replace(/\\/g, '/');
+      token = token.replace(/\\/g, "/");
       setBg(token);
       console.log(token);
     } else {
       setBackgroundImage(false);
-      
     }
   }, []);
 
@@ -363,11 +343,11 @@ const Dashboard = () => {
         handleLogoChange,
         UploadLogoAction,
         bgImage,
-        backgroundImage
+        backgroundImage,
       }}
     >
       {/* background-image: url("src/assets/images/banner-bk.png"); */}
-      <Wrapper>
+      <Wrapper isLoggedin = {isLoggedin}>
         <div
           style={{
             backgroundImage: backgroundImage
@@ -429,15 +409,15 @@ const Dashboard = () => {
 
             {isLoggedin ? <AdminPanel /> : ""}
           </header>
-          <div className="mass">
-            MASS TV . CA
-          </div>
-          <Social/>
+          
+            <div className={isLoggedin ? 'mass' : 'mass isLoggedIn'}>MASS TV . CA</div>
+            <Social />
+          
 
           <LiveVideo />
         </div>
         <div className="live">
-          <h5>Live TV</h5>{" "}
+          <h5>Live TV</h5>
           <CircleIcon className="liveIcon" sx={{ color: "red" }} />
         </div>
       </Wrapper>

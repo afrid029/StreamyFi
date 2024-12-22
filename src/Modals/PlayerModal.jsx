@@ -11,9 +11,12 @@ const GetEmbaded = (url) => {
     return `https://www.youtube.com/embed/${ytmatch[1]}`;
   }
 
-  const vimeoRegex = /^(https?:\/\/)?(www\.)?(vimeo\.com\/)(\d+)$/;
+  const vimeoRegex = /^(https?:\/\/)?(www\.)?(vimeo\.com\/)(\d+)(\?.*)?$/;
 
   const vimatch = url.match(vimeoRegex);
+
+  console.log(vimatch);
+  
 
   if (vimatch) {
     return `https://player.vimeo.com/video/${vimatch[4]}`;

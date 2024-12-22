@@ -23,7 +23,7 @@ justify-content: center;
       height: 50vh;
        width: 90vw;
        position: relative;
-       top: 190px;
+       top: 192px;
     }
 }
 

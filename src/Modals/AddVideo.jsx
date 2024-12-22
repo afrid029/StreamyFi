@@ -42,7 +42,7 @@ const AddVideo = () => {
           <h2>Add Video</h2>
           <div className="Form">
             <div className="FormRow">
-              <label htmlFor="url">Paste Video URL Here</label>
+              <label htmlFor="url">Paste Video URL Here (Youtube/Vimeo)</label>
               <input
                 type="url"
                 onChange={handleURLChange}

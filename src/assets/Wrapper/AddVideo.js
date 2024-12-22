@@ -22,7 +22,12 @@ const Wrapper = styled.div`
     border-radius: 8px;
     width: 50vw;
     text-align: center;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 15px rgba(179, 179, 179, 0.9);
+    transition: box-shadow 0.2s ease;
+}
+
+.modal-content:hover {
+    box-shadow: 0px 0px 30px rgba(238, 238, 238, 0.9);
 }
 
 .close-button {
