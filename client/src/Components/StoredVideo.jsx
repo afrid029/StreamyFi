@@ -1,6 +1,5 @@
-
 import Wrapper from "../assets/Wrapper/StoredVideo";
-import React from "react";
+import React, {useState} from "react";
 import PlayCircleFilledRoundedIcon from "@mui/icons-material/PlayCircleFilledRounded";
 import {
   Box,
@@ -8,20 +7,60 @@ import {
   CardActionArea,
   CardContent,
   CardMedia,
+  Button,
   Typography,
 } from "@mui/material";
 import { useDashboardContext } from "../Pages/Dashboard";
+import { CustomeFetch } from "../Utils/CustomeFetch";
+
+import { Snackbar } from "@mui/material";
+import { redirect } from "react-router-dom";
+
+
+
+const StoredVideo = ({ video }) => {
+  const { setPlaying, PlayerHandler, isloggedin } = useDashboardContext();
+  
+    const [isAlert, setAlert] = useState(false)
+    const [alertMessage, setAlertMessage] = useState('');
+
+  const thumbnail = video.image.replace(/\\/g, "/");
+  const UpdatedThumbnail = thumbnail.replace("public/", "");
+
+  const DeleteVideo = async () => {
+    // console.log(job.ID);
+
+    const data = {ID : video.ID};
+
+    await CustomeFetch.delete(`/admin/deletevideo/${data.ID}`,)
+    .then((res) => {
+
+      //console.log('deleted', res);
       
+      setAlert(true);
+      setAlertMessage("Video Deleted Successfully!")
+      return redirect("/");
+    })
+    .catch((er) => {
+     // console.log(er);
+      setAlert(true);
+      //console.log('noy deleted', er);
+      
+      setAlertMessage("Something Went Wrong. Try Again Later")
+    });
 
-const StoredVideo = ({job}) => {
-  const { setPlaying, PlayerHandler } = useDashboardContext();
-
-  const thumbnail = job.image.replace(/\\/g, "/");
-  const UpdatedThumbnail = thumbnail.replace('public/','');
-
+    
+  }
 
   return (
     <Wrapper>
+       <Snackbar
+              anchorOrigin={{ vertical:'top', horizontal:'center' }}
+              open={isAlert}
+              message={alertMessage}
+              autoHideDuration={5000} // You can also set this for auto hide
+              //onClose={() => setOpen(false)} // Optional: Add close handler
+              />
       {/* <div className="videoplayer">
      <iframe
         src="https://www.youtube.com/embed/uD3p_rZPBUQ"
@@ -33,14 +72,11 @@ const StoredVideo = ({job}) => {
             <p>This is some long text that will be hidden and replaced with an ellipsis if it overflows the container. The ellipsis will show at the point where the text exceeds the container width. This is some long text that will be hidden and replaced with an ellipsis if it overflows the container. The ellipsis will show at the point where the text exceeds the container width.</p>
         </div>
     </div> */}
-
-      <Card className="myCard"
-        onClick={() => {
-          setPlaying(false);
-          PlayerHandler(true, job.url);
-        }}
+ {/* {isAlert ? <AlertComponent message={alertMessage} setAlert={setAlert} /> : <></> } */}
+      <Card
+        className="myCard"
         sx={{
-          maxWidth: 345,
+          // maxWidth: 345,
           marginBottom: "10px",
           borderRadius: "15px",
           boxShadow: "0px 0px 15px #8A8887",
@@ -49,6 +85,10 @@ const StoredVideo = ({job}) => {
       >
         <CardActionArea>
           <Box
+            onClick={() => {
+              setPlaying(false);
+              PlayerHandler(true, video.url);
+            }}
             sx={{
               position: "relative",
               height: 140,
@@ -80,24 +120,55 @@ const StoredVideo = ({job}) => {
                 },
               }}
             />
-
-            {/* <img src="src/assets/images/video.webp" alt="" /> */}
-            {/* <iframe
-              style={{ width: "-webkit-fill-available" }}
-              src="https://www.youtube.com/embed/uD3p_rZPBUQ"
-              title="YouTube video"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe> */}
           </Box>
           <CardContent>
             <div className="h4">
-              <p>{job.title}
-              </p>
+              <p>{video.title}</p>
             </div>
+            {/* {isloggedin ? 
+            <Button
+              onClick={DeleteVideo}
+              color="error"
+              sx={{
+                borderRadius: "25px",
+                "&:hover": {
+                  backgroundColor: "#E44C4C",
+                  color: "white",
+                  border: "1px solidrgb(255, 255, 255)",
+                  //position: 'fixed'
+                },
+              }}
+              variant="contained"
+              size="small"
+            >
+              Delete
+            </Button>
+            : <></>} */}
           </CardContent>
         </CardActionArea>
+        
       </Card>
+      {isloggedin ? 
+            <Button
+              onClick={DeleteVideo}
+              color="error"
+              sx={{
+                borderRadius: "25px",
+                width: "inherit",
+                marginBottom: "10px",
+                "&:hover": {
+                  backgroundColor: "#E44C4C",
+                  color: "white",
+                  border: "1px solidrgb(255, 255, 255)",
+                  //position: 'fixed'
+                },
+              }}
+              variant="contained"
+              size="small"
+            >
+              Delete
+            </Button>
+            : <></>}
     </Wrapper>
   );
 };

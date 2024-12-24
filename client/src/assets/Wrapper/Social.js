@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 const Wrapper = styled.div`
+
+  display: contents;
     
   .social {
     color: white;
@@ -27,12 +29,23 @@ const Wrapper = styled.div`
   }
 
   
+
+   @media (min-width: 1600px){
+    svg {
+        width: 25px;
+    }
+    .social {
+        top: 25vh;
+    }
+    
+  }
+
   @media (max-width: 1600px){
     svg {
         width: 25px;
     }
     .social {
-        top: 22vh;
+        top: 24vh;
     }
     
   }
@@ -52,7 +65,7 @@ const Wrapper = styled.div`
         width: 21px;
     }
     .social {
-        top: 21vh;
+        top: 24vh;
     }
     
   }
@@ -72,18 +85,18 @@ const Wrapper = styled.div`
         width: 18px;
     }
     .social {
-        top: 21vh;
+        top: 19vh;
     }
     
   }
 
 
-   @media (max-width: 450px){
+   @media (max-width: 400px){
     svg {
         width: 15px;
     }
     .social {
-        top: 20vh;
+        top: 19vh;
     }
     
   }

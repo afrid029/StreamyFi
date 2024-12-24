@@ -48,7 +48,7 @@ router.post("/loadlive", isAdminAction, LiveVideo);
 router.post("/uploadlogo", upload.single("logo"), isAdminAction, LogoUpload);
 router.post("/insertvideo", upload.single("image"), isAdminAction, InsertVideo);
 router.patch("/updatevideo", isAdminAction, updateVideo);
-router.delete("/deletevideo", isAdminAction, DeleteVideo);
+router.delete("/deletevideo/:ID", isAdminAction, DeleteVideo);
 router.get("/logout", Logout);
 
 // Export router using CommonJS

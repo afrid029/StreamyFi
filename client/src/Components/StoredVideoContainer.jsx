@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Wrapper from "../assets/Wrapper/StoredVideoContainer";
 import StoredVideo from "./StoredVideo";
 import { useDashboardContext } from "../Pages/Dashboard";
+import Footer from "./Footer";
 
 const StoredVideoContainer = () => {
   const [videoThere, setVideoThere] = useState(false);
@@ -28,7 +29,7 @@ const StoredVideoContainer = () => {
 
       {videoThere ? (
         videos.map((job) => {
-          return <StoredVideo key={job.id} job={job} />;
+          return <StoredVideo key={job.ID} video={job} />;
         })
       ) : ( 
         <h3>No videos there</h3>
@@ -44,6 +45,7 @@ const StoredVideoContainer = () => {
         <StoredVideo />
         <StoredVideo />
         <StoredVideo /> */}
+        <Footer/>
     </Wrapper>
   );
 };

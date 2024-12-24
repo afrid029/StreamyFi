@@ -112,7 +112,7 @@ const Dashboard = () => {
   const [isSubmitting, setSubmit] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isLoggedin, setLoggedin] = useState(false);
+  const [isloggedin, setLoggedin] = useState(false);
 
   const [isLiveModal, setLiveModal] = useState(false);
   const [isVideoModal, setVideoModal] = useState(false);
@@ -133,6 +133,8 @@ const Dashboard = () => {
 //  console.log(stream);
 
 //   console.log(videos);
+// console.log(data);
+
 
   useEffect(() => {
     let token = localStorage.getItem("logo");
@@ -217,7 +219,7 @@ const Dashboard = () => {
         setLoggedin(true);
         LoginModalHandler(false);
         setAlert(true);
-        setAlertMessage("Admin Logged In Successfully!!!")
+        setAlertMessage("Admin Logged In Successfully!")
         setSubmit(false);
       
         return null;
@@ -248,7 +250,7 @@ const Dashboard = () => {
         AddLiveModalHandler(false);
         setSubmit(true);
         setAlert(true);
-        setAlertMessage("Live Stream Uploaded!!!")
+        setAlertMessage("Live Stream Uploaded!")
         return redirect("/");
       })
       .catch((er) => {
@@ -344,7 +346,7 @@ const Dashboard = () => {
         handleLogoUpdateModel(false);
         setSubmit(true);
         setAlert(true);
-        setAlertMessage("Logo Updated Successfully!!!")
+        setAlertMessage("Logo Updated Successfully!")
         return redirect("/");
       })
       .catch((er) => {
@@ -361,7 +363,7 @@ const Dashboard = () => {
         localStorage.removeItem("auth");
         setLoggedin(false);
         setAlert(true);
-        setAlertMessage("Logged Out!!!")
+        setAlertMessage("Admin Logged Out Successfully!")
         return null;
       })
       .catch((er) => {
@@ -402,10 +404,11 @@ const Dashboard = () => {
         UploadLogoAction,
         bgImage,
         backgroundImage,
+        isloggedin
       }}
     >
       {/* background-image: url("src/assets/images/banner-bk.png"); */}
-      <Wrapper isLoggedin = {isLoggedin}>
+      <Wrapper>
 
       {isAlert ? <AlertComponent message={alertMessage} setAlert={setAlert} /> : <></> }
         
@@ -434,7 +437,7 @@ const Dashboard = () => {
                 />
               </div>
               <div className="col-2 align-center">
-                {isLoggedin ? (
+                {isloggedin ? (
                   <Button
                     color="error"
                     onClick={Logout}
@@ -471,10 +474,10 @@ const Dashboard = () => {
               </div>
             </div>
 
-            {isLoggedin ? <AdminPanel /> : ""}
+            {isloggedin ? <AdminPanel /> : ""}
           </header>
           
-            <div className={isLoggedin ? 'mass' : 'mass isLoggedIn'}>MASS TV . CA</div>
+            <div className={isloggedin ? 'mass' : 'mass isLoggedIn'}>MASS TV . CA</div>
             <Social />
           
 

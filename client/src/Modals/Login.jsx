@@ -12,6 +12,8 @@ const Login = () => {
     handlePassword,
     LoginAction,
     isSubmitting,
+    backgroundImage,
+    bgImage
   } = useDashboardContext();
 
   if (!isLoginModal) return null;
@@ -47,7 +49,12 @@ const Login = () => {
     <Wrapper>
       <div
         className="modal-overlay"
-        style={{ backgroundImage: `url('/src/assets/images/banner-bk.png')` }}
+        style={{
+          backgroundImage: backgroundImage
+            ? `url('${bgImage}')`
+            // ? `url('')`
+            : `url('assets/images/banner-bk.png')`,
+        }}
         onClick={() => LoginModalHandler(false)}
       >
         <div className="modal-content" onClick={(e) => e.stopPropagation()}>

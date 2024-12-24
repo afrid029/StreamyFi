@@ -9,21 +9,30 @@ justify-content: center;
   animation: popup 1s ease;
 }
 
+@media (min-width: 1600px){
+    .hls-player {
+       height: 60vh;
+       width: 80vw;
+       position: relative;
+       top: 33vh;
+    }
+}
+
 @media (max-width: 1600px){
     .hls-player {
        height: 60vh;
-       width: 90vw;
+       width: 80vw;
        position: relative;
-       top: 190px;
+       top: 33vh;
     }
 }
 
 @media (max-width: 1200px){
     .hls-player {
       height: 50vh;
-       width: 90vw;
+       width: 80vw;
        position: relative;
-       top: 192px;
+        top: 25vh;
     }
 }
 
@@ -32,16 +41,27 @@ justify-content: center;
        height: 50vh;
        width: 90vw;
        position: relative;
-       top: 186px;
+     top: 25vh;
     }
 }
+
+@media (max-width: 960px){
+    .hls-player {
+       height: 45vh;
+       width: 90vw;
+       position: relative;
+       top: 16vh;
+    }
+}
+
+
 
 @media (max-width: 768px){
     .hls-player {
        height: 45vh;
        width: 90vw;
        position: relative;
-       top: 183px;
+       top: 22vh;
     }
 }
 
@@ -50,7 +70,16 @@ justify-content: center;
        height: 45vh;
        width: 90vw;
        position: relative;
-       top: 179px;
+        top: 18vh;
+    }
+}
+
+@media (max-width: 400px){
+    .hls-player {
+       height: 45vh;
+       width: 90vw;
+       position: relative;
+        top: 18vh;
     }
 }
 

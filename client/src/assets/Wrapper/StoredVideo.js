@@ -2,34 +2,41 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
 
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+
+@media (min-width: 1600px) {
+    width: 22vw;
+    
+}
+
 @media (max-width: 1600px) {
     width: 22vw;
-    display: flex;
-    justify-content: center;
 }
 
 @media (max-width: 1200px) {
     width: 30vw;
-    display: flex;
-    justify-content: center;
 }
 
 @media (max-width: 1024px) {
     width: 45vw;
-    display: flex;
-    justify-content: center;
 }
 
-@media (max-width: 768px) {
-    width: 45vw;
-}
+// @media (max-width: 768px) {
+//     width: 45vw;
+// }
 
-@media (max-width: 600px) {
-    width: 45vw;
-    display: flex;
-    justify-content: center;
+// @media (max-width: 600px) {
+//     width: 45vw;
 
-}
+// }
+
+// @media (max-width: 400px) {
+//     width: 45vw;
+
+// }
 
 .h4 {
     height: 46px; /* Maximum height for the container */

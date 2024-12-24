@@ -122,6 +122,15 @@ const Wrapper = styled.div`
    
 }
 
+@media (min-width: 1600px){
+    .banner h2 {
+        font-size: 24px;
+        margin: auto;
+        letter-spacing: 5px;
+    
+    }
+}
+
 @media (max-width: 1600px){
     .banner h2 {
         font-size: 22px;

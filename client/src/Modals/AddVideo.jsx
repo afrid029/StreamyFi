@@ -70,8 +70,9 @@ const AddVideo = () => {
         className="modal-overlay"
         style={{
           backgroundImage: backgroundImage
-            ? `url('../server/${bgImage}')`
-            : `url('/src/assets/images/banner-bk.png')`,
+            ? `url('${bgImage}')`
+            // ? `url('')`
+            : `url('assets/images/banner-bk.png')`,
         }}
         onClick={() => {
           AddVideoModalHandler(false);

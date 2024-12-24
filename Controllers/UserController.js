@@ -284,20 +284,33 @@ const updateVideo = async (req, res) => {
 };
 
 const DeleteVideo = async (req, res) => {
-  const { ID } = req.body;
+  const { ID } = req.params;
+
+  console.log(ID);
+  
 let db;
     try {
         db = await createDbConnection(); // Establish DB connection
-    const [count] = await db.execute("select * from videos where ID=?", [ID]);
+      await db.execute("delete from videos where ID=?",[ID]).then((result) => {
+       
+        if(result[0].affectedRows == 1) {
+          res.status(200).json({msg: 'video deleted'});
+        }else {
+          res.status(404).json({msg: 'Id does not match'});
+        }
+         
+      }).catch((er)=>{
+        res.status(500).json({ msg: "unable to delete. try again later", er });
+      })
 
-    if (count.length === 1) {
-      const [result] = await db.execute("delete from videos where ID=?", [ID]);
-      res.status(200).json(result);
-    } else if (count.length === 0) {
-      res.status(500).json({ msg: "No video found" });
-    } else {
-      res.status(500).json({ msg: "One ID has multiple video" });
-    }
+    // if (count.length === 1) {
+    //   const [result] = await db.execute("delete from videos where ID=?", [ID]);
+    //   res.status(200).json(result);
+    // } else if (count.length === 0) {
+    //   res.status(500).json({ msg: "No video found" });
+    // } else {
+    //   res.status(500).json({ msg: "One ID has multiple video" });
+    // }
   } catch (er) {
     res.status(500).json({ msg: "unable to delete. try again later", er });
   }
