@@ -44,7 +44,7 @@ const StoredVideo = ({ video }) => {
     .catch((er) => {
      // console.log(er);
       setAlert(true);
-      //console.log('noy deleted', er);
+      console.log('noy deleted', er);
       
       setAlertMessage("Something Went Wrong. Try Again Later")
     });
